@@ -264,20 +264,56 @@ export default function Hero() {
       <div className="portfolio-ui center-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none opacity-0 mix-blend-screen z-[1]"></div>
 
       {/* --- HUD ELEMENTS --- */}
-      <div className="portfolio-ui absolute top-28 left-8 md:top-32 md:left-12 z-[60] font-mono text-[10px] text-blue-400 tracking-widest flex flex-col space-y-1.5 pointer-events-none">
-        <span className="hud-element opacity-0">&gt; SYSTEM ONLINE</span>
-        <span className="hud-element opacity-0">
-          &gt; INITIALIZING PORTFOLIO v2.0
+      {/* --- HUD ELEMENTS --- */}
+      <div className="portfolio-ui absolute top-28 left-8 md:top-32 md:left-12 z-[60] font-mono text-[10px] tracking-[0.25em] flex flex-col space-y-2 pointer-events-none">
+        <span className="hud-element opacity-0 text-[#FFD43B]">
+          ▶ BOOT SEQUENCE COMPLETE
         </span>
-        <span className="hud-element opacity-0">
-          &gt; NEURAL LINK ESTABLISHED
+
+        <span className="hud-element opacity-0 text-[#FFD43B]">
+          ▶ SCANNING USER PROFILE...
         </span>
+
+        <div className="hud-element opacity-0 flex flex-col">
+          <span className="text-[#FFD43B]">▶ IDENTITY VERIFIED</span>
+          <span className="ml-5 text-white tracking-[0.15em]">
+            MANIKANTA GURRAM
+          </span>
+        </div>
+
+        <div className="hud-element opacity-0 flex">
+          <span className="text-[#FFD43B]">▶ ACCESS LEVEL :</span>
+          <span className="ml-2 text-white tracking-[0.15em]">
+            ADMINISTRATOR
+          </span>
+        </div>
+
+        <div className="hud-element opacity-0 flex">
+          <span className="text-[#FFD43B]">▶ AI CORE :</span>
+          <span className="ml-2 text-green-400 animate-pulse">ONLINE</span>
+        </div>
+
+        <div className="hud-element opacity-0 flex items-center">
+          <span className="text-[#FFD43B]">▶ SYSTEM READY</span>
+
+          <span className="ml-2 text-[#FFD43B] animate-pulse">█</span>
+        </div>
       </div>
-      <div className="portfolio-ui absolute bottom-12 right-8 md:bottom-12 md:right-12 z-[60] font-mono text-[10px] text-gray-600 tracking-widest text-right flex flex-col space-y-1.5 pointer-events-none">
-        <span className="hud-element opacity-0">SECURE SYS_ID: REACT_GSAP</span>
-        <span className="hud-element opacity-0">
-          COORD: 34.0522 N / 118.2437 W
-        </span>
+      <div className="portfolio-ui absolute bottom-12 right-8 md:bottom-12 md:right-12 z-[60] font-mono text-[10px] tracking-[0.25em] text-right flex flex-col space-y-2 pointer-events-none">
+        <div className="hud-element opacity-0 flex justify-end">
+          <span className="text-[#FFD43B]">BUILD :</span>
+          <span className="ml-2 text-white">PORTFOLIO v2.0</span>
+        </div>
+
+        <div className="hud-element opacity-0 flex justify-end">
+          <span className="text-[#FFD43B]">ENGINE :</span>
+          <span className="ml-2 text-white">REACT • GSAP</span>
+        </div>
+
+        <div className="hud-element opacity-0 flex justify-end">
+          <span className="text-[#FFD43B]">STATUS :</span>
+          <span className="ml-2 text-green-400 animate-pulse">ONLINE</span>
+        </div>
       </div>
 
       {/* --- SOCIAL LINKS --- */}
@@ -366,13 +402,76 @@ export default function Hero() {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="mb-8"
                 >
-                  <div className="max-w-md rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-6 shadow-[0_15px_40px_rgba(0,0,0,0.25)]">
-                    <p className="text-gray-300 text-[15px] leading-7 font-light tracking-wide">
-                      Building modern web experiences powered by AI, immersive
-                      interfaces, and scalable full-stack applications.
-                      Passionate about creating products that blend intelligent
-                      systems with exceptional user experiences.
-                    </p>
+                  <div className="max-w-sm rounded-3xl border border-[#FFD43B]/20 bg-black/30 backdrop-blur-xl p-5 shadow-[0_15px_40px_rgba(0,0,0,0.3)]">
+                    {/* Header */}
+                    <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+                      <span className="font-mono text-[#FFD43B] text-[11px] tracking-[0.35em] uppercase">
+                        System Analysis
+                      </span>
+
+                      <span className="font-mono text-green-400 text-[10px] tracking-[0.2em] animate-pulse">
+                        ONLINE ●
+                      </span>
+                    </div>
+
+                    {/* Content */}
+                    <div className="space-y-3 font-mono text-[11px]">
+                      <div className="flex justify-between items-center">
+                        <span className="text-[#FFD43B] tracking-[0.25em] uppercase">
+                          User
+                        </span>
+                        <span className="text-white">MANIKANTA</span>
+                      </div>
+
+                      <div className="flex justify-between items-center">
+                        <span className="text-[#FFD43B] tracking-[0.25em] uppercase">
+                          Role
+                        </span>
+                        <span className="text-white text-right">
+                          AI FULL STACK DEV
+                        </span>
+                      </div>
+
+                      <div className="flex justify-between items-center">
+                        <span className="text-[#FFD43B] tracking-[0.25em] uppercase">
+                          Mission
+                        </span>
+                        <span className="text-white text-right">
+                          BUILD AI PRODUCTS
+                        </span>
+                      </div>
+
+                      <div className="flex justify-between items-center">
+                        <span className="text-[#FFD43B] tracking-[0.25em] uppercase">
+                          Stack
+                        </span>
+                        <span className="text-white text-right">
+                          React • Python • Flask
+                        </span>
+                      </div>
+
+                      <div className="flex justify-between items-center">
+                        <span className="text-[#FFD43B] tracking-[0.25em] uppercase">
+                          Status
+                        </span>
+
+                        <span className="text-green-400">AVAILABLE ●</span>
+                      </div>
+
+                      <div className="pt-2">
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-[#FFD43B] tracking-[0.25em] uppercase">
+                            Health
+                          </span>
+
+                          <span className="text-white">100%</span>
+                        </div>
+
+                        <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
+                          <div className="h-full w-full rounded-full bg-gradient-to-r from-[#FFD43B] via-yellow-300 to-green-400"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               )}
