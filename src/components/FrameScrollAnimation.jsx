@@ -115,12 +115,12 @@ const FrameScrollAnimation = ({ frameCount = 240 }) => {
   const blur = useTransform(smoothProgress, [0.85, 0.95], ["blur(0px)", "blur(20px)"]);
 
   return (
-    <div ref={containerRef} className="relative h-[600vh] bg-[#020202]">
+    <div ref={containerRef} className="relative h-[600vh] bg-[#05030B]">
       <div className="sticky top-0 left-0 w-full h-screen overflow-hidden flex items-center justify-center perspective-2000">
         
         {/* Loading Overlay */}
         {!loaded && (
-          <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-[#020202]">
+          <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-[#05030B]">
             <div className="text-blue-500 font-mono text-[10px] uppercase tracking-[0.5em] mb-4">
               Syncing Core Frames... {loadingProgress}%
             </div>

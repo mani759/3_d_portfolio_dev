@@ -4,23 +4,44 @@ import { motion } from "framer-motion";
 
 const projectData = [
   {
-    image: "https://images.unsplash.com/photo-1587620498306-444737c15555?auto=format&fit=crop&q=80&w=800",
-    title: "Real-time Chat App",
-    tags: ["React", "FastAPI", "MongoDB", "Socket.io"],
+    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=800",
+    title: "Employee Management System",
+    tags: ["Python", "Firestore", "Firebase Auth", "React.js"],
     link: "#",
     github: "#",
   },
   {
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=800",
-    title: "Food Delivery Platform",
-    tags: ["React", "Node.js", "Express", "MongoDB"],
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
+    title: "AI Portfolio",
+    tags: ["React.js", "Tailwind CSS", "Framer Motion", "Three.js"],
     link: "#",
     github: "#",
   },
   {
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800",
-    title: "Premium E-Commerce",
-    tags: ["React", "Node.js", "Tailwind", "Stripe"],
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800",
+    title: "Requirement Traceability System",
+    tags: ["Node.js", "Express.js", "Firestore", "Python"],
+    link: "#",
+    github: "#",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800",
+    title: "Heart Disease Expert System",
+    tags: ["Python", "React.js", "Tailwind CSS", "AIML"],
+    link: "#",
+    github: "#",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800",
+    title: "StudySync",
+    tags: ["HTML5", "CSS3", "JavaScript", "React"],
+    link: "#",
+    github: "#",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&q=80&w=800",
+    title: "3D Portfolio",
+    tags: ["Three.js", "React Three Fiber", "GSAP", "Tailwind CSS"],
     link: "#",
     github: "#",
   },
@@ -28,7 +49,7 @@ const projectData = [
 
 const Portfolio = () => {
   return (
-    <section id="projects" className="bg-[#020202] py-24 px-6 md:px-12 lg:px-24">
+    <section id="portfolio" className="bg-[#05030B] py-24 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto text-center mb-20">
         <motion.p 
           initial={{ opacity: 0 }}
@@ -54,7 +75,7 @@ const Portfolio = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
             whileHover={{ y: -10 }}
-            className="group relative overflow-hidden rounded-[2rem] bg-white/5 border border-white/10"
+            className="group relative overflow-hidden rounded-[2rem] bg-[#111118] border border-white/10"
           >
             <div className="relative overflow-hidden aspect-[4/3] rounded-[1.5rem] m-2">
               <img 

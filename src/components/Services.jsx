@@ -20,24 +20,24 @@ export default function Services() {
 
   const mainServices = [
     {
+      icon: <FiZap size={24} />,
+      title: "AI Web Applications",
+      p: "Build next-generation intelligent applications incorporating LLMs, machine learning models, and automated reasoning pipelines.",
+    },
+    {
       icon: <FiLayout size={24} />,
-      title: "Frontend Development",
+      title: "Modern Frontend Development",
       p: "Create responsive, fast, and modern user interfaces using React, Tailwind CSS, and reusable components.",
     },
     {
       icon: <FiServer size={24} />,
-      title: "Backend & API Design",
-      p: "Design and develop secure REST APIs and database integration using FastAPI, Node.js, and MongoDB.",
+      title: "Backend & Firebase Integration",
+      p: "Design secure backends and robust database integration using Cloud Firestore, Firebase Authentication, Node.js, and Python.",
     },
     {
-      icon: <FiCloud size={24} />,
-      title: "Deployment & Hosting",
-      p: "Deploy applications on cloud platforms with domain setup and production-ready server configurations.",
-    },
-    {
-      icon: <FiZap size={24} />,
-      title: "Real-Time Solutions",
-      p: "Develop features like chat apps and live notifications using WebSockets and FastAPI.",
+      icon: <FiBriefcase size={24} />,
+      title: "Interactive 3D Experiences",
+      p: "Develop immersive 3D web interfaces and smooth scroll-linked animations using Three.js, React Three Fiber, and GSAP.",
     },
   ];
 
@@ -87,7 +87,7 @@ export default function Services() {
     <section 
       id="services" 
       ref={containerRef}
-      className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#000] text-white overflow-hidden scroll-mt-24"
+      className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#05030B] text-white overflow-hidden scroll-mt-24"
     >
       {/* Background Subtle Grid */}
       <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)', backgroundSize: '60px 60px' }}></div>
@@ -115,7 +115,7 @@ export default function Services() {
           {mainServices.map((service) => (
             <div
               key={service.title}
-              className="service-card group p-10 bg-[#0a0a0a] border border-white/[0.05] hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(59,130,246,0.05)] transition-all duration-300 rounded-sm cursor-default flex flex-col items-start"
+              className="service-card group p-10 bg-[#111118] border border-white/[0.05] hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(59,130,246,0.05)] transition-all duration-300 rounded-sm cursor-default flex flex-col items-start"
             >
               <div className="mb-8 p-4 bg-white/5 border border-white/10 rounded-sm text-gray-300 group-hover:text-blue-400 group-hover:border-blue-500/20 transition-all">
                 {service.icon}
@@ -134,7 +134,7 @@ export default function Services() {
 
         {/* Featured Experience Card (Sidebar) */}
         <div ref={sidebarRef} className="lg:col-span-4 h-full relative">
-          <div className="sticky top-32 p-10 bg-[#0c0c0c] border border-white/[0.08] rounded-sm group overflow-hidden">
+          <div className="sticky top-32 p-10 bg-[#0B0F17] border border-white/[0.08] rounded-sm group overflow-hidden">
             
             {/* HUD Corner Lines */}
             <div className="corner-line absolute top-2 left-2 w-4 h-4 border-t border-l border-blue-500/50"></div>

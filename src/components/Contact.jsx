@@ -129,14 +129,14 @@ const Contact = () => {
     <div
       ref={containerRef}
       id="contactme"
-      className="relative w-full h-screen bg-[#020202] overflow-hidden flex items-center justify-center font-mono select-none"
+      className="relative w-full h-screen bg-[#05030B] overflow-hidden flex items-center justify-center font-mono select-none"
     >
       {/* 1. Loading Module (Ultra-high Z) */}
       <AnimatePresence>
         {!loaded && (
           <motion.div 
             exit={{ opacity: 0 }}
-            className="absolute inset-0 flex flex-col items-center justify-center z-[100] bg-[#020202]"
+            className="absolute inset-0 flex flex-col items-center justify-center z-[100] bg-[#05030B]"
           >
             <div className="text-cyan-400 font-mono text-[10px] uppercase tracking-[0.5em] mb-4 animate-pulse">
               SYNCING_COMM_STREAM {loadingProgress}%
@@ -211,9 +211,9 @@ const Contact = () => {
             className="relative z-50 w-full max-w-4xl px-6 pointer-events-auto"
           >
             <div className="text-center mb-8">
-              <h2 className="text-6xl md:text-9xl font-black text-white uppercase tracking-tighter leading-none">
-              COMM<span className="text-cyan-500 block sm:inline">.LINK</span>
-            </h2>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-tight max-w-4xl mx-auto mb-4">
+                Let's Build Intelligent Digital Experiences.
+              </h2>
               <div className="flex items-center justify-center space-x-2 text-cyan-500/60 font-mono text-[9px] tracking-[0.6em] uppercase">
                 <FiShield />
                 <span>Protocol: Neural_Gate</span>
@@ -223,7 +223,7 @@ const Contact = () => {
             <form
               ref={formRef}
               onSubmit={sendEmail}
-              className="bg-white/[0.03] backdrop-blur-md border border-white/10 p-10 md:p-14 rounded-none shadow-[0_20px_50px_rgba(0,0,0,0.5)] space-y-10 group"
+              className="bg-[#111118] backdrop-blur-md border border-white/10 p-10 md:p-14 rounded-none shadow-[0_20px_50px_rgba(0,0,0,0.5)] space-y-10 group"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="space-y-3">
@@ -260,7 +260,7 @@ const Contact = () => {
 
               <div className="flex justify-center md:justify-end">
                 <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 50px rgba(6, 182, 212, 0.3)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 0 50px rgba(255, 212, 59, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
                 type="submit"
                 className="group flex items-center space-x-6 bg-cyan-600 text-black font-black text-[11px] uppercase tracking-[0.6em] px-24 py-6 shadow-2xl transition-all"

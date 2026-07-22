@@ -39,14 +39,14 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative w-full bg-[#050505] overflow-hidden pt-20 pb-10 font-sans selection:bg-red-500/30">
+    <footer className="relative w-full bg-[#05030B] overflow-hidden pt-20 pb-10 font-sans selection:bg-red-500/30">
       
       {/* --- BACKGROUND FX --- */}
       {/* Radial Glow following cursor */}
       <motion.div
         className="pointer-events-none absolute inset-0 z-0 opacity-40 mix-blend-screen"
         style={{
-          background: `radial-gradient(circle at ${springX}px ${springY}px, rgba(6, 182, 212, 0.15) 0%, transparent 40%)`,
+          background: `radial-gradient(circle at ${springX}px ${springY}px, rgba(255, 212, 59, 0.15) 0%, transparent 40%)`,
         }}
       />
       
@@ -56,15 +56,15 @@ const Footer = () => {
       </div>
 
       {/* Pulsing Light Blobs */}
-      <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-cyan-600/5 blur-[120px] rounded-full animate-pulse pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cyan-600/5 blur-[120px] rounded-full animate-pulse delay-700 pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-cyan-500/5 blur-[120px] rounded-full animate-pulse pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cyan-500/5 blur-[120px] rounded-full animate-pulse delay-700 pointer-events-none" />
 
       {/* --- TOP DIVIDER (Animated Beam) --- */}
       <div className="relative w-full h-[1px] bg-white/5 mb-20 overflow-hidden">
         <motion.div 
           animate={{ x: ['-100%', '200%'] }}
           transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 left-0 w-[200px] h-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent shadow-[0_0_15px_rgba(6,182,212,0.5)]"
+          className="absolute top-0 left-0 w-[200px] h-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent shadow-[0_0_15px_rgba(255,212,59,0.5)]"
         />
       </div>
 
@@ -83,7 +83,7 @@ const Footer = () => {
                 <FiCpu className="text-cyan-500 text-xl group-hover:text-white transition-colors" />
               </div>
               <h3 className="text-2xl font-black text-white tracking-tighter uppercase italic">
-                LEESH<span className="text-cyan-600">ARK</span>
+                MANI<span className="text-cyan-600">KANTA</span>
               </h3>
             </div>
             <p className="text-gray-500 text-xs leading-relaxed uppercase tracking-widest font-light">
@@ -189,7 +189,7 @@ const Footer = () => {
           <div className="flex items-center space-x-6">
             <div className="text-[10px] text-gray-600 tracking-[0.3em] font-mono flex items-center">
               <span className="w-1.5 h-1.5 bg-cyan-600 rounded-full mr-2"></span>
-              POWERED BY AI SYSTEMS v3.4.1
+              DESIGNED & DEVELOPED BY MANIKANTA
             </div>
             <div className="hidden md:block w-[1px] h-3 bg-white/10"></div>
             <div className="text-[10px] text-gray-600 tracking-[0.3em] font-mono uppercase">
@@ -202,7 +202,7 @@ const Footer = () => {
                 Local_Time: {systemTime}
              </div>
              <p className="text-[9px] text-gray-700 tracking-[0.2em] font-mono uppercase">
-                &copy; LEESHARK. ALL NEURAL LINKS RESERVED.
+                &copy; MANIKANTA. ALL NEURAL LINKS RESERVED.
              </p>
           </div>
         </div>

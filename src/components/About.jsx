@@ -3,40 +3,45 @@ import { FiAward, FiBookOpen, FiCode, FiDownload } from "react-icons/fi";
 import { 
   SiReact, 
   SiTailwindcss, 
-  SiMongodb, 
-  SiFastapi, 
-  SiGit 
+  SiFirebase, 
+  SiPython, 
+  SiNodedotjs, 
+  SiGit,
+  SiVite,
+  SiJavascript
 } from "react-icons/si";
 
 export default function About() {
   const Aboutdata = [
     {
       icon: <FiCode size={20} />,
-      title: "Languages",
-      desc: "HTML, CSS, JS, React, FastAPI, MongoDB",
+      title: "Tech Stack",
+      desc: "React.js, JavaScript, Tailwind CSS, Python, Firebase, Node.js",
     },
     {
       icon: <FiBookOpen size={20} />,
       title: "Education",
-      desc: "B.E Computer Science",
+      desc: "AIML Student",
     },
     {
       icon: <FiAward size={20} />,
       title: "Projects",
-      desc: "Built 5+ modern web projects",
+      desc: "Built 5+ modern web & AI projects",
     },
   ];
 
   const Tools = [
     { icon: <SiReact size={24} />, title: "React js" },
-    { icon: <SiTailwindcss size={24} />, title: "Tailwind css" },
-    { icon: <SiMongodb size={24} />, title: "MongoDB" },
-    { icon: <SiFastapi size={24} />, title: "FastAPI" },
+    { icon: <SiJavascript size={24} />, title: "JavaScript" },
+    { icon: <SiTailwindcss size={24} />, title: "Tailwind CSS" },
+    { icon: <SiPython size={24} />, title: "Python" },
+    { icon: <SiFirebase size={24} />, title: "Firebase" },
+    { icon: <SiNodedotjs size={24} />, title: "Node.js" },
     { icon: <SiGit size={24} />, title: "Git" },
   ];
 
   return (
-    <div id="about" className="relative w-full min-h-screen bg-[#020202] overflow-hidden flex items-center justify-center font-sans tracking-wide py-20 px-6 md:px-12">
+    <div id="about" className="relative w-full min-h-screen bg-[#05030B] overflow-hidden flex items-center justify-center font-sans tracking-wide py-20 px-6 md:px-12">
         
         {/* --- BG EFFECTS --- */}
         <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)', backgroundSize: '50px 50px' }}></div>
@@ -45,7 +50,7 @@ export default function About() {
         {/* --- STATIC FRAME IMAGE (LEFT 45%) --- */}
         <div className="absolute inset-y-0 left-0 w-[45%] z-10 pointer-events-none overflow-hidden hidden lg:block" style={{ WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)', maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)' }}>
             <img 
-               src="/images/ezgif-frame-240.jpg" 
+               src="/images/ezgif-frame-191.jpg" 
                alt="About Profile" 
                className="w-full h-full object-cover opacity-50 grayscale" 
             />
@@ -70,9 +75,7 @@ export default function About() {
                 {/* Bio Paragraph */}
                 <div className="robotic-section">
                     <p className="text-gray-400 text-sm md:text-md lg:text-xl font-light leading-relaxed max-w-2xl">
-                        I am a passionate <span className="text-white font-medium">Full Stack Web Developer</span> specializing in the 
-                        modern web ecosystem. My expertise lies in crafting high-performance, 
-                        scalable applications with precision and clean architecture.
+                        I'm an <span className="text-white font-medium">AI Full-Stack Developer</span> and <span className="text-white font-medium">AIML student</span> who enjoys building immersive web experiences. I learn by building real-world projects and continuously experimenting with modern technologies.
                     </p>
                 </div>
 
