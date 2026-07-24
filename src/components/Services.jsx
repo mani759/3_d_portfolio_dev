@@ -1,13 +1,15 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { 
-  FiLayout, 
-  FiServer, 
-  FiCloud, 
-  FiZap, 
-  FiBriefcase, 
-  FiArrowRight 
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  FiLayout,
+  FiServer,
+  FiZap,
+  FiCpu,
+  FiBriefcase,
+  FiArrowRight,
+  FiLayers,
+  FiActivity,
 } from "react-icons/fi";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -16,192 +18,175 @@ export default function Services() {
   const containerRef = useRef(null);
   const headerRef = useRef(null);
   const gridRef = useRef(null);
-  const sidebarRef = useRef(null);
 
-  const mainServices = [
+  const services = [
     {
-      icon: <FiZap size={24} />,
-      title: "AI Web Applications",
-      p: "Build next-generation intelligent applications incorporating LLMs, machine learning models, and automated reasoning pipelines.",
+      icon: <FiLayout />,
+      title: "Frontend Development",
+      desc: "Building responsive and modern React applications with premium UI, animations and performance focused architecture.",
+      tech: ["React", "Tailwind", "GSAP"],
     },
     {
-      icon: <FiLayout size={24} />,
-      title: "Modern Frontend Development",
-      p: "Create responsive, fast, and modern user interfaces using React, Tailwind CSS, and reusable components.",
+      icon: <FiCpu />,
+      title: "AI Powered Apps",
+      desc: "Integrating machine learning concepts and intelligent features into practical web applications.",
+      tech: ["Python", "Machine Learning", "LLMs"],
     },
     {
-      icon: <FiServer size={24} />,
-      title: "Backend & Firebase Integration",
-      p: "Design secure backends and robust database integration using Cloud Firestore, Firebase Authentication, Node.js, and Python.",
+      icon: <FiServer />,
+      title: "Backend Systems",
+      desc: "Authentication, Firebase, APIs and scalable backend architecture for modern applications.",
+      tech: ["Firebase", "REST API", "Node.js"],
     },
     {
-      icon: <FiBriefcase size={24} />,
-      title: "Interactive 3D Experiences",
-      p: "Develop immersive 3D web interfaces and smooth scroll-linked animations using Three.js, React Three Fiber, and GSAP.",
+      icon: <FiLayers />,
+      title: "Full Stack Projects",
+      desc: "Developing complete applications from frontend interfaces to backend integration.",
+      tech: ["React", "Firebase", "Python"],
+    },
+    {
+      icon: <FiActivity />,
+      title: "UI Animations",
+      desc: "Creating smooth interactions using GSAP and Framer Motion for engaging user experiences.",
+      tech: ["GSAP", "Motion", "UX"],
+    },
+    {
+      icon: <FiZap />,
+      title: "Performance",
+      desc: "Optimizing loading speed, responsiveness and maintainability for production-ready websites.",
+      tech: ["SEO", "Optimization", "Responsive"],
     },
   ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
+      gsap.from(".services-title", {
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: ".services-title",
           start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
+        },
       });
 
-      // 1. Header Animation
-      tl.fromTo(headerRef.current.children, 
-        { opacity: 0, y: 20 }, 
-        { opacity: 1, y: 0, duration: 0.4, ease: "none", stagger: 0.1 }
-      );
-
-      // 2. Main Services Grid Stagger
-      tl.fromTo(".service-card", 
-        { opacity: 0, y: 40 }, 
-        { opacity: 1, y: 0, duration: 0.3, ease: "none", stagger: 0.1 },
-        "-=0.2"
-      );
-
-      // 3. Experience Sidebar Slide
-      tl.fromTo(sidebarRef.current, 
-        { opacity: 0, x: 50 }, 
-        { opacity: 1, x: 0, duration: 0.5, ease: "none" },
-        "-=0.3"
-      );
-
-      // UI corner lines animation for sidebar
-      tl.fromTo(".corner-line",
-        { scale: 0 },
-        { scale: 1, duration: 0.3, ease: "none", stagger: 0.05 },
-        "-=0.2"
-      );
-
-    }, containerRef);
+      gsap.from(".service-card", {
+        y: 70,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".services-grid",
+          start: "top 75%",
+        },
+      });
+    });
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section 
-      id="services" 
+    <section
+      id="services"
       ref={containerRef}
       className="relative py-24 px-6 md:px-12 lg:px-24 bg-[#05030B] text-white overflow-hidden scroll-mt-24"
     >
-      {/* Background Subtle Grid */}
-      <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)', backgroundSize: '60px 60px' }}></div>
-      {/* Noise Texture */}
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }}></div>
+      {/* Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Mesh */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: `
+        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px)
+      `,
+            backgroundSize: "70px 70px",
+          }}
+        />
+
+        {/* Glow */}
+        <div className="absolute top-20 left-10 w-[420px] h-[420px] rounded-full bg-cyan-500/10 blur-[150px]" />
+
+        <div className="absolute bottom-0 right-0 w-[450px] h-[450px] rounded-full bg-blue-600/10 blur-[180px]" />
+
+        {/* Radial Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent,rgba(2,6,23,.96))]" />
+      </div>
 
       {/* Header */}
-      <div ref={headerRef} className="max-w-7xl mx-auto text-center mb-24 relative z-10">
+      <div
+        ref={headerRef}
+        className=" services-title max-w-7xl mx-auto text-center mb-24 relative z-10"
+      >
         <div className="inline-block px-3 py-1 border border-blue-500/30 bg-blue-500/5 rounded-sm mb-4">
-          <p className="text-blue-400 font-mono text-[10px] uppercase tracking-[0.5em]">SERVICES MODULE</p>
+          <p className="text-blue-400 font-mono text-[10px] uppercase tracking-[0.5em]">
+            SERVICES MODULE
+          </p>
         </div>
         <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6">
           My Services<span className="text-blue-500">.</span>
         </h2>
         <div className="w-24 h-[1px] bg-blue-500/40 mx-auto mb-8"></div>
         <p className="max-w-3xl mx-auto text-gray-500 font-light text-base leading-relaxed">
-          Leveraging my experience from production-level applications and real-time startup incubation projects to build scalable digital solutions.
+          Building responsive web applications, AI-powered solutions, and modern
+          user experiences while continuously expanding my engineering skills.
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-start relative z-10">
-        
-        {/* Main Services Grid */}
-        <div ref={gridRef} className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {mainServices.map((service) => (
-            <div
-              key={service.title}
-              className="service-card group p-10 bg-[#111118] border border-white/[0.05] hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(59,130,246,0.05)] transition-all duration-300 rounded-sm cursor-default flex flex-col items-start"
-            >
-              <div className="mb-8 p-4 bg-white/5 border border-white/10 rounded-sm text-gray-300 group-hover:text-blue-400 group-hover:border-blue-500/20 transition-all">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3 tracking-tight uppercase">{service.title}</h3>
-              <p className="text-gray-500 font-light text-sm leading-relaxed mb-10">
-                {service.p}
-              </p>
-              <button className="flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.3em] text-gray-400 hover:text-white group/btn transition-colors">
-                <span>View Details</span> 
-                <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </button>
+      {/* Main Services Grid */}
+      <div
+        ref={gridRef}
+        className="services-grid max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 relative z-10"
+      >
+        {services.map((service) => (
+          <div
+            key={service.title}
+            className="service-card group relative overflow-hidden  rounded-3xl  border  border-white/10  bg-white/[0.03] backdrop-blur-xl  p-8 transition-all duration-500 hover:-translate-y-3 hover:border-cyan-400/30 hover:shadow-[0_25px_80px_rgba(34,211,238,.10)]"
+          >
+            {/* Glow */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+              <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-cyan-400/10 blur-[90px]" />
             </div>
-          ))}
-        </div>
 
-        {/* Featured Experience Card (Sidebar) */}
-        <div ref={sidebarRef} className="lg:col-span-4 h-full relative">
-          <div className="sticky top-32 p-10 bg-[#0B0F17] border border-white/[0.08] rounded-sm group overflow-hidden">
-            
-            {/* HUD Corner Lines */}
-            <div className="corner-line absolute top-2 left-2 w-4 h-4 border-t border-l border-blue-500/50"></div>
-            <div className="corner-line absolute top-2 right-2 w-4 h-4 border-t border-r border-blue-500/50"></div>
-            <div className="corner-line absolute bottom-2 left-2 w-4 h-4 border-b border-l border-blue-500/50"></div>
-            <div className="corner-line absolute bottom-2 right-2 w-4 h-4 border-b border-r border-blue-500/50"></div>
+            {/* Scan Line */}
+            <div className="absolute top-0 left-0 h-[2px] w-full -translate-x-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent group-hover:translate-x-full transition-all duration-[1800ms]" />
 
-            <div className="absolute -top-12 -right-12 w-48 h-48 bg-blue-500/5 blur-[80px] group-hover:bg-blue-500/10 transition-all duration-1000" />
-            
-            <div className="relative z-10 flex flex-col h-full">
-              <div className="flex items-center gap-4 mb-12">
-                <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-sm text-blue-400">
-                  <FiBriefcase size={22} />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold tracking-widest uppercase">Experience</h3>
-                  <span className="text-[8px] font-mono text-gray-600 block tracking-[0.4em] mt-1">MODULE ACTIVE</span>
-                </div>
-              </div>
-
-              <div className="flex gap-4 mb-8">
-                <div className="h-10 px-3 bg-white flex items-center justify-center rounded-sm">
-                   <span className="text-black font-black text-[10px] tracking-tighter">AGROGANAM</span>
-                </div>
-                <div className="h-10 px-3 border border-white/20 flex items-center justify-center rounded-sm">
-                   <span className="text-white font-bold text-[10px] tracking-widest">INCUBATION</span>
-                </div>
-              </div>
-
-              <p className="text-gray-400 font-light text-sm leading-relaxed mb-12">
-                Completed a 6-month internship at <span className="text-white font-medium">Agroganam Technologies</span>, 
-                delivering production-level apps and collaborating on real-time incubation center projects.
-              </p>
-
-              <div className="mt-auto space-y-6">
-                <div className="relative overflow-hidden rounded-sm group/img h-40">
-                  <div className="absolute inset-0 bg-blue-500/5 z-10 mix-blend-overlay"></div>
-                  <img 
-                    className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 scale-100 group-hover:scale-105" 
-                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" 
-                    alt="Work Showcase" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 font-mono text-[8px] text-gray-500 tracking-widest">SYSTEM_IMAGE_01</div>
-                </div>
-                
-                <button 
-                  className="w-full py-4 border border-white/10 text-white font-mono text-[10px] uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-300 rounded-sm"
+            {/* HUD Corners */}
+            <div className="absolute top-5 left-5 h-5 w-5 border-l border-t border-cyan-400/40" />
+            <div className="absolute top-5 right-5 h-5 w-5 border-r border-t border-cyan-400/40" />
+            <div className="absolute bottom-5 left-5 h-5 w-5 border-l border-b border-cyan-400/40" />
+            <div className="absolute bottom-5 right-5 h-5 w-5 border-r border-b border-cyan-400/40" />
+            <div className="relative z-10  mb-8  flex  h-16  w-16  items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-500/5 text-cyan-300 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+              {service.icon}
+            </div>
+            <h3 className="relative z-10 text-2xl font-bold  tracking-tight  text-white  mb-4">
+              {service.title}
+            </h3>
+            <p className="relative z-10  text-gray-400  leading-7  mb-8">
+              {service.desc}
+            </p>
+            <div className="relative z-10 flex flex-wrap gap-2">
+              {service.tech.map((item) => (
+                <span
+                  key={item}
+                  className="px-3 py-1 rounded-full border border-cyan-400/20 bg-cyan-500/5 text-cyan-300 text-[11px] uppercase tracking-wider font-mono"
                 >
-                  View Case Study
-                </button>
-              </div>
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
-
-          {/* Micro HUD Footer */}
-          <div className="mt-6 flex justify-between items-center font-mono text-[9px] text-gray-700 tracking-[0.2em] px-2 opacity-50">
-            <span>&gt; SYSTEM DATA LOADED</span>
-            <span>0x034FB</span>
-          </div>
-        </div>
-
+        ))}
       </div>
 
+      {/* Featured Experience Card (Sidebar) */}
+
       {/* Grid Lines Overlay */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white/[0.03] z-10"></div>
-      <div className="absolute top-0 right-1/2 w-[1px] h-full bg-white/[0.03] z-10"></div>
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white/[0.03] z-100"></div>
+      <div className="absolute top-0 right-1/2 w-[1px] h-full bg-white/[0.03] z-100"></div>
     </section>
   );
 }
