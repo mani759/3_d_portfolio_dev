@@ -5,7 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FiSend, FiUser, FiMail, FiMessageSquare, FiActivity, FiShield } from "react-icons/fi";
+import {
+  FiSend,
+  FiUser,
+  FiMail,
+  FiMessageSquare,
+  FiActivity,
+  FiShield,
+} from "react-icons/fi";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +20,7 @@ const Contact = () => {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const formRef = useRef();
-  
+
   const [loaded, setLoaded] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [currentFrameIdx, setCurrentFrameIdx] = useState(0);
@@ -22,24 +29,25 @@ const Contact = () => {
   const imagesRef = useRef([]);
   const seqRef = useRef({ frame: 0 });
 
-  const currentFrame = (index) => `/image3/ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`;
+  const currentFrame = (index) =>
+    `/image3/ezgif-frame-${(index + 1).toString().padStart(3, "0")}.jpg`;
 
   // 1. Preload Sequence
   useEffect(() => {
     let loadedCount = 0;
     for (let i = 0; i < frameCount; i++) {
-        const img = new Image();
-        img.src = currentFrame(i);
-        img.onload = () => {
-            loadedCount++;
-            setLoadingProgress(Math.floor((loadedCount / frameCount) * 100));
-            if (loadedCount === frameCount) setLoaded(true);
-        };
-        img.onerror = () => {
-            loadedCount++;
-            if (loadedCount === frameCount) setLoaded(true);
-        };
-        imagesRef.current.push(img);
+      const img = new Image();
+      img.src = currentFrame(i);
+      img.onload = () => {
+        loadedCount++;
+        setLoadingProgress(Math.floor((loadedCount / frameCount) * 100));
+        if (loadedCount === frameCount) setLoaded(true);
+      };
+      img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === frameCount) setLoaded(true);
+      };
+      imagesRef.current.push(img);
     }
   }, []);
 
@@ -61,7 +69,7 @@ const Contact = () => {
     const render = () => {
       if (!canvas || !imagesRef.current.length) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       let frameIdx = Math.round(seqRef.current.frame);
       if (frameIdx >= frameCount) frameIdx = frameCount - 1;
 
@@ -69,11 +77,11 @@ const Contact = () => {
       if (img && img.complete && img.naturalWidth !== 0) {
         const scale = Math.max(
           canvas.width / img.width,
-          canvas.height / img.height
+          canvas.height / img.height,
         );
         const x = (canvas.width - img.width * scale) / 2;
         const y = (canvas.height - img.height * scale) / 2;
-        
+
         ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
       }
       setCurrentFrameIdx(frameIdx);
@@ -90,20 +98,22 @@ const Contact = () => {
         end: "+=4000",
         scrub: 1.2, // Smoother scrub
         pin: true,
-        anticipatePin: 1
-      }
+        anticipatePin: 1,
+      },
     });
 
     tl.to(seqRef.current, {
       frame: frameCount - 1,
       snap: "frame",
       ease: "none",
-      onUpdate: render
+      onUpdate: render,
     });
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
-      ScrollTrigger.getAll().filter(t => t.trigger === containerRef.current).forEach(t => t.kill());
+      ScrollTrigger.getAll()
+        .filter((t) => t.trigger === containerRef.current)
+        .forEach((t) => t.kill());
     };
   }, [loaded]);
 
@@ -114,7 +124,7 @@ const Contact = () => {
         "service_ezep6zg",
         "template_6fbergt",
         formRef.current,
-        "0GSfZwE2fSCw9lqcZ"
+        "0GSfZwE2fSCw9lqcZ",
       )
       .then(() => {
         toast.success("TRANSMISSION_COMPLETE 🚀");
@@ -134,7 +144,7 @@ const Contact = () => {
       {/* 1. Loading Module (Ultra-high Z) */}
       <AnimatePresence>
         {!loaded && (
-          <motion.div 
+          <motion.div
             exit={{ opacity: 0 }}
             className="absolute inset-0 flex flex-col items-center justify-center z-[100] bg-[#05030B]"
           >
@@ -142,10 +152,10 @@ const Contact = () => {
               SYNCING_COMM_STREAM {loadingProgress}%
             </div>
             <div className="w-64 h-[2px] bg-cyan-950/30 overflow-hidden">
-               <motion.div 
-                 className="h-full bg-cyan-500" 
-                 style={{ width: `${loadingProgress}%` }}
-               />
+              <motion.div
+                className="h-full bg-cyan-500"
+                style={{ width: `${loadingProgress}%` }}
+              />
             </div>
           </motion.div>
         )}
@@ -164,14 +174,14 @@ const Contact = () => {
       {/* 4. Peripheral HUD Elements (Z-20) */}
       <AnimatePresence>
         {loaded && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="absolute inset-0 z-20 pointer-events-none p-10"
           >
             {/* Top-left animated text */}
             <div className="absolute top-12 left-12">
-              <motion.div 
+              <motion.div
                 animate={{ opacity: [0.3, 1, 0.3] }}
                 transition={{ duration: 2, repeat: Infinity }}
                 className="text-cyan-400 font-mono text-[9px] uppercase tracking-[0.7em] font-bold"
@@ -188,13 +198,19 @@ const Contact = () => {
 
             {/* Static HUD Text */}
             <div className="absolute top-12 left-12 flex items-center space-x-3">
-               <FiActivity className="text-cyan-400 text-xs animate-pulse" />
-               <span className="text-cyan-400/40 text-[9px] tracking-[0.4em] uppercase font-bold">Signal_Stable</span>
+              <FiActivity className="text-cyan-400 text-xs animate-pulse" />
+              <span className="text-cyan-400/40 text-[9px] tracking-[0.4em] uppercase font-bold">
+                Signal_Stable
+              </span>
             </div>
-            
+
             <div className="absolute bottom-12 right-12 text-right hidden lg:block">
-               <span className="text-white/10 text-[9px] tracking-[0.6em] uppercase block mb-1">Archive_003</span>
-               <span className="text-cyan-500/30 text-[9px] tracking-[0.4em] uppercase">&gt; System_Ready</span>
+              <span className="text-white/10 text-[9px] tracking-[0.6em] uppercase block mb-1">
+                Archive_003
+              </span>
+              <span className="text-cyan-500/30 text-[9px] tracking-[0.4em] uppercase">
+                &gt; System_Ready
+              </span>
             </div>
           </motion.div>
         )}
@@ -227,7 +243,9 @@ const Contact = () => {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="space-y-3">
-                  <label className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-cyan-500/50 block ml-1">IDENT_SIGNATURE</label>
+                  <label className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-cyan-500/50 block ml-1">
+                    ENTER_NAME
+                  </label>
                   <input
                     name="name"
                     type="text"
@@ -237,7 +255,9 @@ const Contact = () => {
                   />
                 </div>
                 <div className="space-y-3">
-                  <label className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-cyan-500/50 block ml-1">COMM_PATH_ADDR</label>
+                  <label className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-cyan-500/50 block ml-1">
+                    ENTER_EMAIL
+                  </label>
                   <input
                     name="email"
                     type="email"
@@ -245,11 +265,16 @@ const Contact = () => {
                     required
                     className="w-full bg-white/5 border-b border-white/10 py-5 px-6 text-white text-[11px] outline-none focus:border-cyan-600 transition-all placeholder:text-cyan-950/20"
                   />
+                  <p className="text-[10px] text-white/35 ml-1">
+                    Your email is only used to reply to your message.
+                  </p>
                 </div>
               </div>
 
               <div className="space-y-3">
-                <label className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-cyan-500/50 block ml-1">DATA_PAYLOAD</label>
+                <label className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-cyan-500/50 block ml-1">
+                  Tell me about your project...
+                </label>
                 <textarea
                   name="message"
                   placeholder="INPUT_TRANSMISSION..."
@@ -260,14 +285,18 @@ const Contact = () => {
 
               <div className="flex justify-center md:justify-end">
                 <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 50px rgba(255, 212, 59, 0.3)" }}
-                whileTap={{ scale: 0.95 }}
-                type="submit"
-                className="group flex items-center space-x-6 bg-cyan-600 text-black font-black text-[11px] uppercase tracking-[0.6em] px-24 py-6 shadow-2xl transition-all"
-              >
-                <span>TRANSMIT</span>
-                <FiSend className="text-lg transition-transform group-hover:translate-x-1" />
-              </motion.button>
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 0 50px rgba(255, 212, 59, 0.3)",
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  type="submit"
+                  className="group flex items-center space-x-6 bg-cyan-600 text-black font-black text-[11px] uppercase tracking-[0.6em] px-24 py-6 shadow-2xl transition-all"
+                >
+                  <span>Send Message</span>
+
+                  <FiSend className="text-lg transition-transform group-hover:translate-x-1" />
+                </motion.button>
               </div>
             </form>
           </motion.div>
