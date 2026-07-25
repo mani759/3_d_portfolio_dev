@@ -60,33 +60,55 @@ export default function Services() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".services-title", {
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".services-title",
-          start: "top 80%",
+      // Header Animation
+      gsap.fromTo(
+        headerRef.current.children,
+        {
+          opacity: 0,
+          y: 50,
         },
-      });
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: headerRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+            invalidateOnRefresh: true,
+          },
+        },
+      );
 
-      gsap.from(".service-card", {
-        y: 70,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".services-grid",
-          start: "top 75%",
+      // Cards Animation
+      gsap.fromTo(
+        ".service-card",
+        {
+          opacity: 0,
+          y: 70,
         },
-      });
-    });
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: "top 75%",
+            toggleActions: "play none none reverse",
+            invalidateOnRefresh: true,
+          },
+        },
+      );
+
+      ScrollTrigger.refresh();
+    }, containerRef);
 
     return () => ctx.revert();
   }, []);
-
   return (
     <section
       id="services"
@@ -144,40 +166,46 @@ export default function Services() {
         {services.map((service) => (
           <div
             key={service.title}
-            className="service-card group relative overflow-hidden  rounded-3xl  border  border-white/10  bg-white/[0.03] backdrop-blur-xl  p-8 transition-all duration-500 hover:-translate-y-3 hover:border-cyan-400/30 hover:shadow-[0_25px_80px_rgba(34,211,238,.10)]"
+            className="service-card group relative overflow-hidden rounded-3xl border border-white/10 bg-[#111118] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400/30 hover:shadow-[0_20px_60px_rgba(34,211,238,.08)]"
           >
-            {/* Glow */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-              <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-cyan-400/10 blur-[90px]" />
-            </div>
+            {/* Top Glow */}
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
-            {/* Scan Line */}
-            <div className="absolute top-0 left-0 h-[2px] w-full -translate-x-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent group-hover:translate-x-full transition-all duration-[1800ms]" />
+            {/* Background Glow */}
+            <div className="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-cyan-500/5 blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
 
-            {/* HUD Corners */}
-            <div className="absolute top-5 left-5 h-5 w-5 border-l border-t border-cyan-400/40" />
-            <div className="absolute top-5 right-5 h-5 w-5 border-r border-t border-cyan-400/40" />
-            <div className="absolute bottom-5 left-5 h-5 w-5 border-l border-b border-cyan-400/40" />
-            <div className="absolute bottom-5 right-5 h-5 w-5 border-r border-b border-cyan-400/40" />
-            <div className="relative z-10  mb-8  flex  h-16  w-16  items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-500/5 text-cyan-300 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+            {/* Icon */}
+            <div className="relative z-10 mb-8 flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-500/10 text-cyan-300 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
               {service.icon}
             </div>
-            <h3 className="relative z-10 text-2xl font-bold  tracking-tight  text-white  mb-4">
+
+            {/* Title */}
+            <h3 className="relative z-10 text-2xl font-bold tracking-tight text-white mb-4 group-hover:text-cyan-300 transition-colors duration-300">
               {service.title}
             </h3>
-            <p className="relative z-10  text-gray-400  leading-7  mb-8">
+
+            {/* Description */}
+            <p className="relative z-10 text-gray-400 leading-7 mb-8">
               {service.desc}
             </p>
+
+            {/* Divider */}
+            <div className="relative z-10 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
+
+            {/* Tech Stack */}
             <div className="relative z-10 flex flex-wrap gap-2">
-              {service.tech.map((item) => (
+              {service.tech.map((tech) => (
                 <span
-                  key={item}
-                  className="px-3 py-1 rounded-full border border-cyan-400/20 bg-cyan-500/5 text-cyan-300 text-[11px] uppercase tracking-wider font-mono"
+                  key={tech}
+                  className="px-3 py-1 rounded-full border border-cyan-400/20 bg-cyan-500/10 text-cyan-300 text-[11px] uppercase tracking-wider font-mono transition-all duration-300 group-hover:border-cyan-400/40"
                 >
-                  {item}
+                  {tech}
                 </span>
               ))}
             </div>
+
+            {/* Bottom Accent */}
+            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-cyan-400 group-hover:w-full transition-all duration-500"></div>
           </div>
         ))}
       </div>
