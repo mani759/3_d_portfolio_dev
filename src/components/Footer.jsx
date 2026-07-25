@@ -227,10 +227,17 @@ const Footer = () => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                document
+                  .getElementById("contactme")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
               className="w-full py-4 bg-gradient-to-r from-cyan-600 to-blue-800 text-black font-black text-[10px] uppercase tracking-[0.5em] rounded-xl shadow-[0_10px_30px_rgba(6,182,212,0.2)] flex items-center justify-center space-x-3 group overflow-hidden relative"
             >
               <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[100%] transition-all duration-1000" />
-              <span>Initiate Transmission</span>
+
+              <span>Let's Work Together</span>
+
               <FiArrowUpRight className="text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </motion.button>
           </motion.div>

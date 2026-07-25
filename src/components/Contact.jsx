@@ -121,10 +121,10 @@ const Contact = () => {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_ezep6zg",
-        "template_6fbergt",
+        "service_7dhw5od",
+        "template_vh2q0lj",
         formRef.current,
-        "0GSfZwE2fSCw9lqcZ",
+        "MVz4Ul7qDxiVHlPm0",
       )
       .then(() => {
         toast.success("TRANSMISSION_COMPLETE 🚀");

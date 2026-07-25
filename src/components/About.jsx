@@ -80,7 +80,7 @@ export default function About() {
 
   return (
     <div
-      id="about "
+      id="aboutme"
       ref={aboutRef}
       className="relative w-full min-h-screen bg-[#05030B] overflow-hidden flex items-center justify-center font-sans tracking-wide py-20 px-6 md:px-12"
     >
