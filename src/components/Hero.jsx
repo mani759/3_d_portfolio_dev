@@ -265,7 +265,7 @@ export default function Hero() {
 
       {/* --- HUD ELEMENTS --- */}
       {/* --- HUD ELEMENTS --- */}
-      <div className="portfolio-ui absolute top-28 left-8 md:top-32 md:left-12 z-[60] font-mono text-[10px] tracking-[0.25em] flex flex-col space-y-2 pointer-events-none">
+      <div className="portfolio-ui absolute top-20 left-4 md:top-32 md:left-12 z-[60] font-mono text-[8px] md:text-[10px] tracking-[0.15em] md:tracking-[0.25em] flex flex-col space-y-1 md:space-y-2 pointer-events-none">
         <span className="hud-element opacity-0 text-[#FFD43B]">
           ▶ BOOT SEQUENCE COMPLETE
         </span>
@@ -299,7 +299,7 @@ export default function Hero() {
           <span className="ml-2 text-[#FFD43B] animate-pulse">█</span>
         </div>
       </div>
-      <div className="portfolio-ui absolute bottom-12 right-8 md:bottom-12 md:right-12 z-[60] font-mono text-[10px] tracking-[0.25em] text-right flex flex-col space-y-2 pointer-events-none">
+      <div className="portfolio-ui absolute bottom-6 right-4 md:bottom-12 md:right-12 z-[60] font-mono text-[8px] md:text-[10px] tracking-[0.15em] md:tracking-[0.25em]">
         <div className="hud-element opacity-0 flex justify-end">
           <span className="text-[#FFD43B]">BUILD :</span>
           <span className="ml-2 text-white">PORTFOLIO v2.0</span>
@@ -370,7 +370,7 @@ export default function Hero() {
                   className="mb-4"
                 >
                   <h1
-                    className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-white tracking-[0.1em] uppercase leading-none"
+                    className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-white tracking-[0.1em] uppercase leading-none"
                     style={{ textShadow: "0 0 20px rgba(255,255,255,0.2)" }}
                   >
                     {titleText}
@@ -402,10 +402,10 @@ export default function Hero() {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="mb-8"
                 >
-                  <div className="max-w-sm rounded-3xl border border-[#FFD43B]/20 bg-black/30 backdrop-blur-xl p-5 shadow-[0_15px_40px_rgba(0,0,0,0.3)]">
+                  <div className="max-w-[290px] md:max-w-sm rounded-3xl border border-[#FFD43B]/20 bg-black/30 backdrop-blur-xl p-4 md:p-5 shadow-[0_15px_40px_rgba(0,0,0,0.3)]">
                     {/* Header */}
                     <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-                      <span className="font-mono text-[#FFD43B] text-[11px] tracking-[0.35em] uppercase">
+                      <span className="font-mono text-[#FFD43B] text-[10px] md:text-[11px] tracking-[0.35em] uppercase">
                         System Analysis
                       </span>
 
@@ -483,27 +483,7 @@ export default function Hero() {
                   transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                   className="pointer-events-auto"
                 >
-                  <button
-                    className="
-      group
-      inline-flex
-      items-center
-      gap-3
-      px-8
-      py-3.5
-      rounded-full
-      border
-      border-[#FFD43B]/30
-      bg-white/[0.04]
-      backdrop-blur-xl
-      text-[#FFD43B]
-      transition-all
-      duration-300
-      hover:border-[#FFD43B]
-      hover:bg-[#FFD43B]/10
-      hover:shadow-[0_0_35px_rgba(255,212,59,0.25)]
-    "
-                  >
+                  <button className="group inline-flex  items-center  gap-3 px-6 md:px-8 py-3 md:py-3.5   rounded-full  border border-[#FFD43B]/30 bg-white/[0.04] backdrop-blur-xl text-[#FFD43B] transition-all duration-300 hover:border-[#FFD43B] hover:bg-[#FFD43B]/10    hover:shadow-[0_0_35px_rgba(255,212,59,0.25)] ">
                     <span className="font-medium tracking-wide uppercase text-sm">
                       Explore Work
                     </span>
