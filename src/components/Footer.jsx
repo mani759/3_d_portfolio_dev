@@ -49,25 +49,25 @@ const Footer = () => {
     {
       icon: <FiGithub />,
       label: "GITHUB",
-      url: "#",
+      url: "https://github.com/mani759",
       color: "hover:text-red-500",
     },
     {
       icon: <FiTwitter />,
       label: "TWITTER",
-      url: "#",
+      url: "https://x.com/MANIKANTAGurra9",
       color: "hover:text-cyan-400",
     },
     {
       icon: <FiLinkedin />,
       label: "LINKEDIN",
-      url: "#",
+      url: "https://www.linkedin.com/in/manikanta-gurram-707145326/",
       color: "hover:text-blue-500",
     },
     {
       icon: <FiInstagram />,
       label: "INSTAGRAM",
-      url: "#",
+      url: "https://www.instagram.com/maniframes_00?igsh=emh6M2psc2VsOG5y",
       color: "hover:text-violet-500",
     },
   ];
