@@ -10,10 +10,9 @@ import {
   SiTailwindcss,
   SiFirebase,
   SiPython,
-  SiNodedotjs,
+  SiExpress,
   SiGit,
   SiVite,
-  SiJavascript,
 } from "react-icons/si";
 
 export default function About() {
@@ -41,11 +40,10 @@ export default function About() {
 
   const Tools = [
     { icon: <SiReact size={24} />, title: "React js" },
-    { icon: <SiJavascript size={24} />, title: "JavaScript" },
+    { icon: <SiExpress size={24} />, title: "Express.js" },
     { icon: <SiTailwindcss size={24} />, title: "Tailwind CSS" },
     { icon: <SiPython size={24} />, title: "Python" },
     { icon: <SiFirebase size={24} />, title: "Firebase" },
-    { icon: <SiNodedotjs size={24} />, title: "Node.js" },
     { icon: <SiGit size={24} />, title: "Git" },
   ];
   useEffect(() => {

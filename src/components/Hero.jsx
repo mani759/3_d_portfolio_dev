@@ -446,7 +446,7 @@ export default function Hero() {
                           Stack
                         </span>
                         <span className="text-white text-right">
-                          React • Python • Flask
+                          MERN • Python • Flask
                         </span>
                       </div>
 
