@@ -5,13 +5,20 @@ import { motion } from "framer-motion";
 const projectData = [
   {
     image: "/thumbnails/thumbnail1.png",
+    title: "QUIZZY ",
+    tags: ["React", "Express", "Tailwind CSS", "Socket.io", "Supabase"],
+    link: "https://quizzy-phi-ten.vercel.app/",
+    github: "https://github.com/mani759/QUIZZY",
+  },
+  {
+    image: "/thumbnails/thumbnail2.png",
     title: "StudySync",
     tags: ["HTML", "CSS", "JavaScript", "Firebase Auth"],
     link: "https://studysync-vw4s.onrender.com",
     github: "https://github.com/mani759/studysync",
   },
   {
-    image: "/thumbnails/thumbnail2.png",
+    image: "/thumbnails/thumbnail3.png",
     title: "MindMate",
     tags: [
       "HTML",
@@ -24,13 +31,6 @@ const projectData = [
     ],
     link: "https://mindmate-7eqw.onrender.com",
     github: "https://github.com/mani759/MindMate",
-  },
-  {
-    image: "/thumbnails/thumbnail3.png",
-    title: "3D Developer Portfolio",
-    tags: ["React", "Vite", "Tailwind CSS", "GSAP", "Framer Motion"],
-    link: "https://3-d-portfolio-dev-mani.vercel.app/",
-    github: "https://github.com/mani759/3_d_portfolio_dev",
   },
 ];
 
