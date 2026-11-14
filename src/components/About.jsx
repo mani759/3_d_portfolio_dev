@@ -203,7 +203,7 @@ export default function About() {
           {/* CTA */}
           <div className="pt-6 about-reveal">
             <a
-              href="/resume.pdf"
+              href="/resume1.pdf"
               download
               target="_blank"
               rel="noopener noreferrer"
